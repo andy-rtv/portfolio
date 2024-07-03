@@ -1,18 +1,54 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import styled from 'styled-components';
+import logo from '../assets/images/svg-logo-andyrtv.svg';
 
-function Navbar() {
+const NavbarContainer = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #F9CE34, #EE2A7B, #6228D7);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+`;
+
+const Logo = styled.img`
+  height: 50px;
+  margin-right: 1rem;
+`;
+
+const NavLinks = styled.ul`
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+`;
+
+const NavLink = styled.a`
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 20px;
+  cursor: pointer;
+`;
+
+const Navbar = () => {
   return (
-    <nav className="navbar">
-      <ul className="navbar-links">
-        <li><Link to="/">ACCUEIL</Link></li>
-        <li><Link to="/projects">PROJET</Link></li>
-        <li><Link to="/about">À PROPOS</Link></li>
-        <li><Link to="/contact">CONTACT</Link></li>
-      </ul>
-    </nav>
+    <NavbarContainer>
+      <Logo src={logo} alt="Logo" />
+      <NavLinks>
+        <li><NavLink href="#home">ACCUEIL</NavLink></li>
+        <li><NavLink href="#projects">PROJET</NavLink></li>
+        <li><NavLink href="#about">À PROPOS</NavLink></li>
+        <li><NavLink href="#contact">CONTACT</NavLink></li>
+      </NavLinks>
+    </NavbarContainer>
   );
-}
+};
 
 export default Navbar;
